@@ -70,6 +70,7 @@ async function getMoviesPerCategories(genre, filmToDisplay) {
 //  ======================================
 
 function infoMovie(id) {
+    var infoMovieTab = [];
     fetch(baseURL + id)
         .then(response => response.json())
         .then(data => {
@@ -85,6 +86,18 @@ function infoMovie(id) {
             countryInfo = data["countries"];
             boxOfficeInfo = data["worldwide_gross_income"];
             summaryInfo = data["long_description"];
+            infoMovieTab.push(imageInfo);
+            infoMovieTab.push(titleInfo);
+            infoMovieTab.push(genreInfo);
+            infoMovieTab.push(dateInfo);
+            infoMovieTab.push(rateInfo);
+            infoMovieTab.push(imbdScoreInfo);
+            infoMovieTab.push(realisatorInfo);
+            infoMovieTab.push(actorInfo);
+            infoMovieTab.push(durationInfo);
+            infoMovieTab.push(countryInfo);
+            infoMovieTab.push(boxOfficeInfo);
+            infoMovieTab.push(summaryInfo);
 
             console.log("INFO D'UN FILM");
             console.log(imageInfo);
@@ -100,12 +113,14 @@ function infoMovie(id) {
             console.log(boxOfficeInfo);
             console.log(summaryInfo);
         })
+    return infoMovieTab;
 }
 
 
+
 window.addEventListener('load', () => {
-    // getBestMovie();
-    // infoMovie(1508669);
+    getBestMovie();
+    infoMovie(1508669);
     test = getMoviesPerCategories("Horror", 7);
     console.log(test);
 });
