@@ -9,20 +9,32 @@ const movieByCategories = baseURL + "?sort_by=-imdb_score&genre=";
 //  =======================
 
 async function getBestMovie() {
+    var contentDivBestMovie = "";
     await fetch(rBestMovies)
         .then(response => response.json())
         .then(data => {
-            console.log(data["results"][0]["id"])
-            titleBM = data["results"][0]["title"];
-            imageBM = data["results"][0]["image_url"];
-            console.log(titleBM);
-            console.log(imageBM);
+            let titleBM = data["results"][0]["title"];
+            let imageBM = data["results"][0]["image_url"];
+            let imdbScore = data["results"][0]["imdb_score"];
             // On fait une requête sur le film pour avoir sa description
             fetch(data["results"][0]["url"])
                 .then(response => response.json())
                 .then(data => {
-                    description = data["description"];
-                    console.log(description);
+                    let description = data["description"];
+                    contentDivBestMovie += `
+                    <div class="mainBestMovie">
+                            <div>
+                                <p>` + titleBM + `</p>
+                                <p>` + description + `</p>
+                                <p>` + imdbScore + ` / 10 sur IMDB</p>
+                            </div>
+                            <div class="mydivouter">
+                                <img src="` + imageBM + `" style="width:200px; height:300px;"></img>
+                                <button type="button" class="mybuttonoverlap btn btn-info">Plus d'infos</button>
+                            </div>
+                    </div>
+                    `;
+                    document.querySelector('#go_here_best_movie').insertAdjacentHTML('afterbegin', contentDivBestMovie);
                 })
         })
 }
@@ -120,7 +132,7 @@ function infoMovie(id) {
 
 window.addEventListener('load', () => {
     getBestMovie();
-    infoMovie(1508669);
-    test = getMoviesPerCategories("Horror", 7);
-    console.log(test);
+    // infoMovie(1508669);
+    // test = getMoviesPerCategories("Horror", 7);
+    // console.log(test);
 });
