@@ -4,6 +4,7 @@
 async function openModal(idMovie){
     let contentSectionInfoMovie = ``;
     const infoMovie = await this.getInfoMovie(idMovie); // Request info d'un film
+    let genresMovie = infoMovie['genres'];
     let wgi = ``;
     let rated = ``;
     let genres = ``;
@@ -14,9 +15,13 @@ async function openModal(idMovie){
     if (infoMovie['rated'] != 'Not rated or unkown rating'){
         rated = `<p>Revenus générés : ` + infoMovie["rated"] + `</p>`;
     }
-    if (infoMovie["genres"].length > 1){
-        for (var i = 0; i < infoMovie["genres"].length; i++){
-            genres += infoMovie["genres"][i] + ', ';
+    if (genresMovie.length == 0){
+        genres = "Non défini"
+    } else if (genresMovie.length == 1){
+        genres = genresMovie[0]
+    } else {
+        for (var j = 0; j < genresMovie.length; j++){
+            genres += genresMovie[j] + ', ';
         }
         genres = genres.substring(0, genres.length - 2);
     }
@@ -31,14 +36,14 @@ async function openModal(idMovie){
             <p>` + infoMovie["long_description"] + `</p>
         </div>
         <div class="columnMiddleModal">
-            <span style="display:flex;"><h3>Genre :</h3> <h7>` + infoMovie["genres"] + `</h7></span>
-            <span style="display:flex;"><h3>Durée :</h3> <h7>` + infoMovie["duration"] + `</h7></span>
-            <span style="display:flex;"><h3>Note IMDB :</h3> <h7>` + infoMovie["imdb_score"] + ` / 10</h7></span>
+            <span><h3>Genre :</h3> <h7>` + genres + `</h7></span>
+            <span><h3>Durée :</h3> <h7>` + infoMovie["duration"] + ` mins</h7></span>
+            <span><h3>Note IMDB :</h3> <h7>` + infoMovie["imdb_score"] + ` / 10</h7></span>
             ` + rated + `
             ` + wgi + `
-            <span style="display:flex;"><h3>Année de production :</h3> <h7>` + infoMovie["year"] + `</h7></span>
-            <span style="display:flex;"><h3>Pays de production :</h3> <h7>` + infoMovie["countries"] + `</h7></span>
-            <span style="display:flex;"><h3>Directeur :</h3> <h7>` + infoMovie["directors"] + `</h7></span>
+            <span><h3>Année de production :</h3> <h7>` + infoMovie["year"] + `</h7></span>
+            <span><h3>Pays de production :</h3> <h7>` + infoMovie["countries"] + `</h7></span>
+            <span><h3>Directeur :</h3> <h7>` + infoMovie["directors"] + `</h7></span>
             <h3>Acteurs :</h3>
             <p>` + infoMovie["actors"] + `</p>
         </div>

@@ -9,12 +9,13 @@
 .mybuttonoverlap{
 	position: absolute;
     z-index: 2;
-	height: 25px;
+	height: 35px;
 	width: 100px;
-	border-radius: 5px;
+	border-radius: 15px;
     top: 125px;
 	left: 50px;
     display: none;
+	cursor: pointer;
 }
 
 .mydivouter:hover .mybuttonoverlap{ 

@@ -8,18 +8,33 @@
 .slide {
     width: 100%;
     max-width: 800px;
-    height: 350px;
+    height: 300px;
+    position: absolute;
+    transition: all 0.5s;
+}
+.slideFirstCat {
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
+    position: absolute;
+    transition: all 0.5s;
+}
+.slideSecondCat {
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
+    position: absolute;
+    transition: all 0.5s;
+}
+.slideThirdCat {
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
     position: absolute;
     transition: all 0.5s;
 }
 
-.slide img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.btn {
+.btnCarroussel {
     position: absolute;
     width: 40px;
     height: 40px;
@@ -28,7 +43,19 @@
     border-radius: 50%;
     z-index: 10px;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #303234;
+    font-size: 18px;
+}
+.btnCarrousselWhite {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    border: none;
+    border-radius: 50%;
+    z-index: 10px;
+    cursor: pointer;
+    background-color: white;
     font-size: 18px;
 }
 
@@ -36,12 +63,166 @@
     transform: scale(1.1);
 }
 
+.containerInfoSlide {
+    background-color: #303234;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+.containerInfoSlideWhite {
+    background-color: white;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+.containerInfoSlide img{
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
+}
+.containerInfoSlideWhite img{
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
+}
+
+
+.firstColumnInfoSlide{
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.firstColumnInfoSlide h1{
+    color: white;
+    text-decoration: none;
+    margin-left: 0;
+}
+
+.firstColumnInfoSlide h3{
+	color: white;
+	text-decoration: underline;
+	margin: 2px;
+}
+
+.firstColumnInfoSlide h7{
+	color: white;
+	padding-left: 7px;
+}
+.firstColumnInfoSlide span{
+	display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.firstColumnInfoSlideBlack{
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.firstColumnInfoSlideBlack h1{
+    color: #303234;
+    text-decoration: none;
+    margin-left: 0;
+}
+
+.firstColumnInfoSlideBlack h3{
+	color: #303234;
+	text-decoration: underline;
+	margin: 2px;
+}
+
+.firstColumnInfoSlideBlack h7{
+	color: #303234;
+	padding-left: 7px;
+}
+
+.firstColumnInfoSlideBlack span{
+	display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+.btnsCardMovie{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.btnCardMovie{
+    height: 35px;
+    width: 100px;
+    border-radius: 15px;
+    margin-right: 25px;
+    cursor: pointer;
+}
+
 .btn-prev {
-    top: 45%;
+    top: 37%;
     left: 2%;
+    color: white;
 }
 
 .btn-next {
-    top: 45%;
+    top: 37%;
     right: 2%;
+    color: white;
+}
+
+
+.btn-prevFirstCat {
+    top: 37%;
+    left: 2%;
+    color: #303234;
+}
+
+.btn-nextFirstCat {
+    top: 37%;
+    right: 2%;
+    color: #303234;
+}
+
+
+.btn-prevSecondCat {
+    top: 37%;
+    left: 2%;
+    color: white;
+}
+
+.btn-nextSecondCat {
+    top: 37%;
+    right: 2%;
+    color: white;
+}
+
+
+.btn-prevThirdCat {
+    top: 37%;
+    left: 2%;
+    color: #303234;
+}
+
+.btn-nextThirdCat {
+    top: 37%;
+    right: 2%;
+    color: #303234;
 }

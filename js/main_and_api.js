@@ -5,9 +5,9 @@ const uInfoMovie = baseURL + '/api/v1/titles/';
 const uBestMovies = baseURL + '/api/v1/titles/?sort_by=-imdb_score';
 const uMovieByCategories = baseURL + '/api/v1/titles/?sort_by=-imdb_score&genre=';
 
-//  =======================
-//      Meilleurs Films
-//  =======================
+//  ======================
+//      Meilleur Film
+//  ======================
 async function getBestMovie() {
     let contentDivBestMovie = "";
     await fetch(uBestMovies)
@@ -29,9 +29,13 @@ async function getBestMovie() {
                                 <p>` + titleBM + `</p>
                                 <p>` + description + `</p>
                                 <p>` + imdbScore + ` / 10 sur IMDB</p>
+                                <div class="btnsCardMovie">
+                                    <button class="btnCardMovie">Lecture</button>
+                                    <button class="btnCardMovie" onclick="openModal(` + idMovie + `)">Plus d'infos</button>
+                                </div>
                             </div>
                             <div class="mydivouter">
-                                <img src="` + imageBM + `" style="width:200px; height:300px;"></img>
+                                <img src="` + imageBM + `" style="width:200px; height:300px;" alt="` + titleBM + `"></img>
                                 <button class="mybuttonoverlap btn-info" onclick="openModal(` + idMovie + `)">Plus d'infos</button>
                             </div>
                     </div>
@@ -49,7 +53,7 @@ async function getBestMovie() {
 async function getMoviesPerCategories(genre, filmToDisplay) {
     var moviesInCategorie = [];
     var compareNext;
-    await fetch(uMovieByCategories + genre)
+    return fetch(uMovieByCategories + genre)
         .then(response => response.json())
         .then(async data => {
             data['results'].forEach(element => {
@@ -72,7 +76,6 @@ async function getMoviesPerCategories(genre, filmToDisplay) {
             if (nbToDelete != 0) {
                 moviesInCategorie.splice(-(nbToDelete));
             }
-            console.log(moviesInCategorie);
             return moviesInCategorie;
         })
     
@@ -93,5 +96,5 @@ async function getInfoMovie(id) {
 //  ================================
 window.addEventListener('load', () => {
     getBestMovie();
-    // test = getMoviesPerCategories("Horror", 7); 
+    // test = getMoviesPerCategories("", 8); 
 });
