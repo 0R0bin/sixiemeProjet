@@ -117,7 +117,7 @@ async function createMoviesCarroussel(nameCategorie, nameSlide, choiceColor) {
         `;
     }
     
-    document.querySelector('#go_here_js_cat_1').insertAdjacentHTML('afterbegin', contentBestMovieCarroussel);
+    document.querySelector('#go_here_js'+nameSlide).insertAdjacentHTML('afterbegin', contentBestMovieCarroussel);
 }
 
 
@@ -126,9 +126,13 @@ async function createMoviesCarroussel(nameCategorie, nameSlide, choiceColor) {
 //  ================================
 window.addEventListener('load', async () => {
     await createBestMoviesCarroussel();
-    await createMoviesCarroussel("Action", "FirstCat", 1);
+    await createMoviesCarroussel("Action", "Cat1", 1);
+    await createMoviesCarroussel("Adventure", "Cat2", 0);
+    await createMoviesCarroussel("Romance", "Cat3", 1);
 
-    // Best Catégories Slides
+    // =====================
+    // Best catégorie slides
+    // =====================
     const slides = document.querySelectorAll(".slide");
 
     slides.forEach((slide, indx) => {
@@ -166,33 +170,97 @@ window.addEventListener('load', async () => {
         });
     });
     
+    // =========================
     // Première catégorie slides
-    const slidesFirstCat = document.querySelectorAll(".slideFirstCat");
-    slidesFirstCat.forEach((slide, indx) => {
+    // =========================
+    const slidesCat1 = document.querySelectorAll(".slideCat1");
+    slidesCat1.forEach((slide, indx) => {
         slide.style.transform = `translateX(${indx * 100}%)`;
     });
-    const nextSlideFirstCat = document.querySelector(".btn-nextFirstCat");
-    let curSlideFirstCat = 0;
-    let maxSlideFirstCat = slidesFirstCat.length - 1;
-    nextSlideFirstCat.addEventListener("click", function () {
-        if (curSlideFirstCat === maxSlideFirstCat) {
-            curSlideFirstCat = 0;
+    const nextSlideCat1 = document.querySelector(".btn-nextCat1");
+    let curSlideCat1 = 0;
+    let maxSlideCat1 = slidesCat1.length - 1;
+    nextSlideCat1.addEventListener("click", function () {
+        if (curSlideCat1 === maxSlideCat1) {
+            curSlideCat1 = 0;
         } else {
-            curSlideFirstCat++;
+            curSlideCat1++;
         }
-        slidesFirstCat.forEach((slide, indx) => {
-            slide.style.transform = `translateX(${100 * (indx - curSlideFirstCat)}%)`;
+        slidesCat1.forEach((slide, indx) => {
+            slide.style.transform = `translateX(${100 * (indx - curSlideCat1)}%)`;
         });
     });
-    const prevSlideFirstCat = document.querySelector(".btn-prevFirstCat");
-    prevSlideFirstCat.addEventListener("click", function () {
-        if (curSlideFirstCat === 0) {
-            curSlideFirstCat = maxSlideFirstCat;
+    const prevSlideCat1 = document.querySelector(".btn-prevCat1");
+    prevSlideCat1.addEventListener("click", function () {
+        if (curSlideCat1 === 0) {
+            curSlideCat1 = maxSlideCat1;
         } else {
-            curSlideFirstCat--;
+            curSlideCat1--;
         }
-        slidesFirstCat.forEach((slide, indx) => {
-            slide.style.transform = `translateX(${100 * (indx - curSlideFirstCat)}%)`;
+        slidesCat1.forEach((slide, indx) => {
+            slide.style.transform = `translateX(${100 * (indx - curSlideCat1)}%)`;
+        });
+    });
+    // =========================
+    // Deuxième catégorie slides
+    // =========================
+    const slidesCat2 = document.querySelectorAll(".slideCat2");
+    slidesCat2.forEach((slide, indx) => {
+        slide.style.transform = `translateX(${indx * 100}%)`;
+    });
+    const nextSlideCat2 = document.querySelector(".btn-nextCat2");
+    let curSlide2 = 0;
+    let maxSlideCat2 = slidesCat2.length - 1;
+    nextSlideCat2.addEventListener("click", function () {
+        if (curSlide2 === maxSlideCat2) {
+            curSlide2 = 0;
+        } else {
+            curSlide2++;
+        }
+        slidesCat2.forEach((slide, indx) => {
+            slide.style.transform = `translateX(${100 * (indx - curSlide2)}%)`;
+        });
+    });
+    const prevSlideCat2 = document.querySelector(".btn-prevCat2");
+    prevSlideCat2.addEventListener("click", function () {
+        if (curSlide2 === 0) {
+            curSlide2 = maxSlideCat2;
+        } else {
+            curSlide2--;
+        }
+        slidesCat2.forEach((slide, indx) => {
+            slide.style.transform = `translateX(${100 * (indx - curSlide2)}%)`;
+        });
+    });
+    // =========================
+    // Deuxième catégorie slides
+    // =========================
+    const slidesCat3 = document.querySelectorAll(".slideCat3");
+    slidesCat3.forEach((slide, indx) => {
+        slide.style.transform = `translateX(${indx * 100}%)`;
+    });
+    const nextSlideCat3 = document.querySelector(".btn-nextCat3");
+    let curSlideCat3 = 0;
+    let maxSlideCat3 = slidesCat3.length - 1;
+    nextSlideCat3.addEventListener("click", function () {
+        if (curSlideCat3 === maxSlideCat3) {
+            curSlideCat3 = 0;
+        } else {
+            curSlideCat3++;
+        }
+        slidesCat3.forEach((slide, indx) => {
+            slide.style.transform = `translateX(${100 * (indx - curSlideCat3)}%)`;
+        });
+    });
+    const prevSlideCat3 = document.querySelector(".btn-prevCat3");
+    prevSlideCat3.addEventListener("click", function () {
+        if (curSlideCat3 === 0) {
+            curSlideCat3 = maxSlideCat3;
+        } else {
+            curSlideCat3--;
+        }
+        slidesCat3.forEach((slide, indx) => {
+            slide.style.transform = `translateX(${100 * (indx - curSlideCat3)}%)`;
         });
     });
 });

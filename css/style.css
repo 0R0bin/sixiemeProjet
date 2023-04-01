@@ -88,11 +88,31 @@ header{
 	text-decoration: underline;
 }
 
-/* Section Fantaisie */
+/* Section Cat 1 */
 .CategorieOne{
 	margin-top: 50px;
 }
 .CategorieOne h1{
+	margin-left: 15px;
+	color: white;
+	text-decoration: underline;
+}
+
+/* Section Cat 2 */
+.CategorieTwo{
+	margin-top: 50px;
+	background-color: white;
+}
+.CategorieTwo h1{
+	margin-left: 15px;
+	text-decoration: underline;
+}
+
+/* Section Cat 3 */
+.CategorieThree{
+	margin-top: 50px;
+}
+.CategorieThree h1{
 	margin-left: 15px;
 	color: white;
 	text-decoration: underline;
