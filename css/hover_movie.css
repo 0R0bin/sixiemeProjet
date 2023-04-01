@@ -1,0 +1,22 @@
+/* Hover Movie */
+
+.mydivouter{
+	position:relative;
+	width: 200px;
+	height: 300px;
+}
+
+.mybuttonoverlap{
+	position: absolute;
+    z-index: 2;
+	height: 25px;
+	width: 100px;
+	border-radius: 5px;
+    top: 125px;
+	left: 50px;
+    display: none;
+}
+
+.mydivouter:hover .mybuttonoverlap{ 
+	display:block;
+}
