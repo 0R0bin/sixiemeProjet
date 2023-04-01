@@ -95,6 +95,5 @@ async function getInfoMovie(id) {
 //      Au chargement de la page
 //  ================================
 window.addEventListener('load', () => {
-    getBestMovie();
-    // test = getMoviesPerCategories("", 8); 
+    getBestMovie(); 
 });

@@ -116,7 +116,6 @@ async function createMoviesCarroussel(nameCategorie, nameSlide, choiceColor) {
         <button class="btnCarrousselWhite btn-prev` + nameSlide + `"><</button>
         `;
     }
-    
     document.querySelector('#go_here_js'+nameSlide).insertAdjacentHTML('afterbegin', contentBestMovieCarroussel);
 }
 
