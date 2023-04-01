@@ -95,35 +95,44 @@ async function getInfoMovie(id) {
 //  ===================
 async function openModal(idMovie){
     let contentSectionInfoMovie = ``;
-    const infoMovie = await this.getInfoMovie(idMovie); // Request info d'un film
+    const infoMovie = await this.getInfoMovie(214915); // Request info d'un film
     let wgi = ``;
     let rated = ``;
+    let genres = ``;
 
     if (infoMovie["worldwide_gross_income"] != null){
         wgi = `<p>` + infoMovie["worldwide_gross_income"] + `</p>`;
     }
     if (infoMovie['rated'] != 'Not rated or unkown rating'){
-        rated = `<p>` + infoMovie["rated"] + `</p>`;
+        rated = `<p>Revenus générés : ` + infoMovie["rated"] + `</p>`;
     }
+    if (infoMovie["genres"].length > 1){
+        for (var i = 0; i < infoMovie["genres"].length; i++){
+            genres += infoMovie["genres"][i] + ', ';
+        }
+        genres = genres.substring(0, genres.length - 2);
+    }
+    
 
     // Start content modal info
     contentSectionInfoMovie += `
     <div class="mainDivModal">
         <div class="columnLeftModal">
-            <h1 style="color: black;">` + infoMovie["title"] + `</h1>
+            <h1>` + infoMovie["title"] + `</h1>
+            <h3>Description :</h3>
             <p>` + infoMovie["long_description"] + `</p>
-            ` + rated + `
-            ` + wgi + `
         </div>
         <div class="columnMiddleModal">
-        <p> Genre : ` + infoMovie["genres"] + `</p>
-        <p> Durée : ` + infoMovie["duration"] + ` mins</p>
-        <p> Note IMDB : ` + infoMovie["imdb_score"] + ` / 10</p>
-        <p> Année de production : ` + infoMovie["year"] + `</p>
-        <p> Pays de production : ` + infoMovie["countries"] + `</p>
-        <p> Directeur : ` + infoMovie["directors"] + `</p>
-        <p> Acteurs :</p>
-        <p>` + infoMovie["actors"] + `</p>
+            <span style="display:flex;"><h3>Genre :</h3> <h7>` + infoMovie["genres"] + ` / 10</h7></span>
+            <span style="display:flex;"><h3>Durée :</h3> <h7>` + infoMovie["duration"] + ` / 10</h7></span>
+            <span style="display:flex;"><h3>Note IMDB :</h3> <h7>` + infoMovie["imdb_score"] + ` / 10</h7></span>
+            ` + rated + `
+            ` + wgi + `
+            <span style="display:flex;"><h3>Année de production :</h3> <h7>` + infoMovie["year"] + `</h7></span>
+            <span style="display:flex;"><h3>Pays de production :</h3> <h7>` + infoMovie["countries"] + `</h7></span>
+            <span style="display:flex;"><h3>Directeur :</h3> <h7>` + infoMovie["directors"] + `</h7></span>
+            <h3>Acteurs :</h3>
+            <p>` + infoMovie["actors"] + `</p>
         </div>
         <div class="columnRightModal">
             <button class="btn-close" onclick="closeModal()">⨉</button>
@@ -159,5 +168,5 @@ window.addEventListener('load', () => {
     // Ajout du listener en dehors de la modal pour la fermer
     document.querySelector(".overlay").addEventListener("click", closeModal);
 
-    // test = getMoviesPerCategories("Horror", 7); TODO
+    test = getMoviesPerCategories("Horror", 7); 
 });
