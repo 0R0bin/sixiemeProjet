@@ -6,8 +6,8 @@
 
 .modal{
 	padding: 10px;
-	/* min-width: 33%;
-	max-width: 95%; */
+	min-width: 75%;
+	max-width: 95%;
 	position: absolute;
 	left: 50%;
 	top: 50%;

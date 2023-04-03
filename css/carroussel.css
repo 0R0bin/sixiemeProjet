@@ -41,7 +41,6 @@
     padding: 10px;
     border: none;
     border-radius: 50%;
-    z-index: 10px;
     cursor: pointer;
     background-color: #303234;
     font-size: 18px;
@@ -53,7 +52,6 @@
     padding: 10px;
     border: none;
     border-radius: 50%;
-    z-index: 10px;
     cursor: pointer;
     background-color: white;
     font-size: 18px;

@@ -9,11 +9,12 @@ async function openModal(idMovie){
     let rated = ``;
     let genres = ``;
 
+    // Take care of null income
     if (infoMovie["worldwide_gross_income"] != null){
-        wgi = `<p>` + infoMovie["worldwide_gross_income"] + `</p>`;
+        wgi = `<span><h3>Revenus générés :</h3> <h7>` + infoMovie["worldwide_gross_income"] + ` $</h7></span>`;
     }
     if (infoMovie['rated'] != 'Not rated or unkown rating'){
-        rated = `<p>Revenus générés : ` + infoMovie["rated"] + `</p>`;
+        rated = `<span><h3>Guide parental :</h3> <h7>` + infoMovie["rated"] + `</h7></span>`;
     }
     if (genresMovie.length == 0){
         genres = "Non défini"
@@ -49,14 +50,13 @@ async function openModal(idMovie){
         </div>
         <div class="columnRightModal">
             <button class="btn-close" onclick="closeModal()">⨉</button>
-            <img src="` + infoMovie["image_url"] + `">
+            <img src="` + infoMovie["image_url"] + `" alt="` + infoMovie["title"] + `">
         </div>
     </div>
     `;
     // End content modal info
 
     document.querySelector('#go_here_modal_info').insertAdjacentHTML('afterbegin', contentSectionInfoMovie);
-
     document.querySelector(".modal").classList.remove("hidden");
     document.querySelector(".overlay").classList.remove("hidden");
 }

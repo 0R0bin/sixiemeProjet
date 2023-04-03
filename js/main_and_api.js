@@ -78,7 +78,6 @@ async function getMoviesPerCategories(genre, filmToDisplay) {
             }
             return moviesInCategorie;
         })
-    
 }
 
 //  =======================
